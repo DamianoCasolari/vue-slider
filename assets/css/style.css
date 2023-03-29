@@ -9,6 +9,11 @@
 
 /* background zone  */
 
+.my_container {
+    height: 100vh;
+}
+
+
 .img_background {
     position: fixed;
     top: 0;
@@ -71,10 +76,6 @@ i {
 
 /* thumbnail carousel  */
 
-.my_container {
-    height: 100vh;
-}
-
 .thumbnail {
     width: 20%;
     transition-duration: 1s;
@@ -100,7 +101,7 @@ i {
     transform: scale(0.9);
 }
 
-*.img_background:not(.active) {
+*.container_img:not(.active) {
     display: none;
 }
 

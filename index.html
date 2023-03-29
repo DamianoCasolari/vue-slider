@@ -28,19 +28,19 @@
     <div id="app">
         <div class="my_container text-center">
             <!-- add main images  -->
-            <div class="container_img">
-                <img :src="'./assets/'+game.image" class="img_background" :class="index == imgcounter ? 'active' : '' "
-                    :alt="game.title" v-for="(game,index) in infoGames">
-            </div>
-            <!-- add info images  -->
-            <div class="container_description text-start position-fixed top-0 start-0 text-white m-5">
-                <h1 class="title_movie"></h1>
-                <p class="description"></p>
+            <div class="container_img" v-for="(game,index) in infoGames" :class="index == imgcounter ? 'active' : '' ">
+                <img :src="'./assets/'+game.image" class="img_background" 
+                    :alt="game.title">
+                <!-- add info images  -->
+                <div class="container_description text-start position-fixed top-0 start-0 text-white m-5">
+                    <h1 class="title_movie">{{game.title}}</h1>
+                    <p class="description">{{game.text}}</p>
+                </div>
             </div>
 
             <div class="d-flex align-items-end justify-content-center h-100">
                 <!-- add button carousel  -->
-                <button class="btn_carousel btn_left border-0 bg-transparent start-0" @click="previousGame" >
+                <button class="btn_carousel btn_left border-0 bg-transparent start-0" @click="previousGame">
                     <i class="fa fa-chevron-left" aria-hidden="true"></i>
                 </button>
                 <button class="btn_carousel btn_right border-0 bg-transparent end-0" @click="nextGame">
