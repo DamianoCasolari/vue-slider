@@ -29,7 +29,7 @@ createApp({
             active: false,
             clickedStop: false,
             reverseClicked: false,
-            setIntervalEl : null,
+            setIntervalEl: null,
             imgcounter: 0
         }
     },
@@ -61,29 +61,41 @@ createApp({
         },
         changeActiveReverse() {
             this.reverseClicked = !this.reverseClicked;
+            clearInterval(this.setIntervalEl)
+            if (!this.clickedStop) {
+                if (!this.reverseClicked) {
+                    this.setIntervalEl = setInterval(() => {
+                        this.nextGame()
+                    }, 3000);
+                } else {
+                    this.setIntervalEl = setInterval(() => {
+                        this.previousGame()
+                    }, 3000);
+                }
+            }
         },
         // add media function 
-        autoPlay(){
+        autoPlay() {
             clearInterval(this.setIntervalEl)
-            if (this.reverseClicked == false) {
-            this.setIntervalEl = setInterval(() => {
-                this.nextGame()
-            }, 3000);
-        } else {
-            this.setIntervalEl = setInterval(() => {
-                this.previousGame()
-            }, 3000);
-        }
+            if (!this.reverseClicked) {
+                this.setIntervalEl = setInterval(() => {
+                    this.nextGame()
+                }, 3000);
+            } else {
+                this.setIntervalEl = setInterval(() => {
+                    this.previousGame()
+                }, 3000);
+            }
         },
-        stopPlay(){
+        stopPlay() {
             clearInterval(this.setIntervalEl)
         }
 
     },
     beforeMount() {
         this.autoPlay()
-     },
-    
+    },
+
 }).mount('#app')
 
 
