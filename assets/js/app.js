@@ -48,6 +48,10 @@ createApp({
 
             }
         },
+        selectThumbnail(index) {
+            this.imgcounter = index
+            console.log(this.imgcounter);
+        },
         changeActive() {
             this.active = !this.active;
         }
