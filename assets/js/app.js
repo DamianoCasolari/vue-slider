@@ -32,7 +32,7 @@ createApp({
         }
     },
     methods: {
-        changeColor() {
+        changeActive() {
             this.active = !this.active;
         }
     }
