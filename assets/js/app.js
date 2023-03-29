@@ -32,6 +32,22 @@ createApp({
         }
     },
     methods: {
+
+        nextGame() {
+            if (this.imgcounter == this.infoGames.length - 1) {
+                this.imgcounter = 0
+            } else {
+                this.imgcounter++
+            }
+        },
+        previousGame() {
+            if (this.imgcounter == 0) {
+                this.imgcounter = this.infoGames.length - 1;
+            } else {
+                this.imgcounter--
+
+            }
+        },
         changeActive() {
             this.active = !this.active;
         }
