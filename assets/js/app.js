@@ -28,6 +28,7 @@ createApp({
             ],
             image: "https://picsum.photos/200/300",
             active: false,
+            setIntervalEl : null,
             imgcounter: 0
         }
     },
@@ -54,14 +55,17 @@ createApp({
             console.log(this.imgcounter);
         },
         // add click on thumbnails 
+        changeActive() {
+            this.active = !this.active;
+        },
+        // add media function 
         autoPlay(){
-            setInterval(() => {
+            this.setIntervalEl = setInterval(() => {
                 this.nextGame()
             }, 3000);
         },
-
-        changeActive() {
-            this.active = !this.active;
+        stopPlay(){
+            clearInterval(this.setIntervalEl)
         }
     },
     beforeMount() {

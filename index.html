@@ -49,17 +49,20 @@
                 <!-- add thumbnails  -->
                 <div class="container_thumbnail w-100 d-none d-sm-flex p-5">
                     <div class="thumbnail p-2" :class="index == imgcounter ? 'shadow' : '' "
-                        v-for="(game,index) in infoGames" @click="selectThumbnail(index)">
+                        v-for="(game,index) in infoGames" @click="selectThumbnail(index)" @mouseover="stopPlay()" @mouseleave="autoPlay()">
                         <img :src="'./assets/'+game.image" :alt="game.title">
                     </div>
                 </div>
                 <!-- add media button  -->
             </div>
             <div class="d-flex container_media position-fixed top-0 end-0 m-3">
-                <button class="stop_btn border-0 bg-transparent"><i class="fa-solid fa-circle-stop "></i></button>
-                <button class="play_btn border-0 bg-transparent"><i class="fa-solid fa-circle-play"></i></button>
+                <!-- <button class="stop_btn border-0 bg-transparent"><i class="fa-solid fa-circle-stop"></i>
+                </button>
+                <button class="play_btn border-0 bg-transparent"><i class="fa-solid fa-circle-play"></i>
+                </button> -->
                 <button class="reverse_btn border-0 bg-transparent"><i
-                        class="fa-solid fa-clock-rotate-left"></i></button>
+                        class="fa-solid fa-clock-rotate-left"></i>
+                    </button>
             </div>
         </div>
     </div>
