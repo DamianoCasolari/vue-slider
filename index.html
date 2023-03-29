@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>js-our-team</title>
+    <title>vue slider</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,18 +49,18 @@
                 <!-- add thumbnails  -->
                 <div class="container_thumbnail w-100 d-none d-sm-flex p-5">
                     <div class="thumbnail p-2" :class="index == imgcounter ? 'shadow' : '' "
-                        v-for="(game,index) in infoGames" @click="selectThumbnail(index)" @mouseover="stopPlay()" @mouseleave="autoPlay()">
+                        v-for="(game,index) in infoGames" @click="selectThumbnail(index)" @mouseover="clickedStop ? null : stopPlay()" @mouseleave="clickedStop ? null : autoPlay()">
                         <img :src="'./assets/'+game.image" :alt="game.title">
                     </div>
                 </div>
                 <!-- add media button  -->
             </div>
             <div class="d-flex container_media position-fixed top-0 end-0 m-3">
-                <!-- <button class="stop_btn border-0 bg-transparent"><i class="fa-solid fa-circle-stop"></i>
+                <button class="stop_btn border-0 bg-transparent" :class="clickedStop ? 'light_press' : '' " @click="stopPlay(); changeActive()"><i class="fa-solid fa-circle-stop"></i>
                 </button>
-                <button class="play_btn border-0 bg-transparent"><i class="fa-solid fa-circle-play"></i>
-                </button> -->
-                <button class="reverse_btn border-0 bg-transparent"><i
+                <button class="play_btn border-0 bg-transparent" @click="autoPlay(); changeActive()" :class="!clickedStop ? 'light_press' : '' " ><i class="fa-solid fa-circle-play"></i>
+                </button>
+                <button class="reverse_btn border-0 bg-transparent" :class="reverseClicked ? 'light_press' : '' " @click="changeActiveReverse()"><i
                         class="fa-solid fa-clock-rotate-left"></i>
                     </button>
             </div>
