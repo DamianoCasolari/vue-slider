@@ -32,7 +32,7 @@ createApp({
         }
     },
     methods: {
-
+        // left/right button function 
         nextGame() {
             if (this.imgcounter == this.infoGames.length - 1) {
                 this.imgcounter = 0
@@ -48,14 +48,26 @@ createApp({
 
             }
         },
+        // add click on thumbnails 
         selectThumbnail(index) {
             this.imgcounter = index
             console.log(this.imgcounter);
         },
+        // add click on thumbnails 
+        autoPlay(){
+            setInterval(() => {
+                this.nextGame()
+            }, 3000);
+        },
+
         changeActive() {
             this.active = !this.active;
         }
-    }
+    },
+    beforeMount() {
+        this.autoPlay()
+     },
+    
 }).mount('#app')
 
 
