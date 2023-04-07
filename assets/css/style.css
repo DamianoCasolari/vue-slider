@@ -124,6 +124,17 @@ i {
     color: white;
 }
 
+/* -----FOOTER---- */
+
+footer {
+    bottom: 4px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: rgba(255, 255, 255, 0.788);
+
+
+}
+
 /* ANIMATION */
 
 @keyframes move_left {
