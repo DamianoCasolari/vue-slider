@@ -48,7 +48,7 @@
                 </button>
                 <!-- add thumbnails  -->
                 <div class="container_thumbnail w-100 d-none d-sm-flex p-5">
-                    <div class="thumbnail p-2" :class="index == imgcounter ? 'shadow' : '' "
+                    <div class="thumbnail p-2" :class="index == imgcounter ? 'my_shadow' : '' "
                         v-for="(game,index) in infoGames" @click="selectThumbnail(index)" @mouseover="clickedStop ? null : stopPlay()" @mouseleave="clickedStop ? null : autoPlay()">
                         <img :src="'./assets/'+game.image" :alt="game.title">
                     </div>
